@@ -1,4 +1,5 @@
-import java.util.Scanner;
+import java.io.*;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -17,11 +18,19 @@ public class Main {
                 System.out.println("1. Add Tour");
                 System.out.println("2. View Tours");
                 System.out.println("3. Book Tour");
-                System.out.println("4. Exit");
+                System.out.println("4. Cancel Booking");
+                System.out.println("5. Search Tours");
+                System.out.println("6. View Tour Details");
+                System.out.println("7. Sort Tours by Price");
+                System.out.println("8. Sort Tours by Available Seats");
+                System.out.println("9. Export Tours to CSV");
+                System.out.println("10. Exit");
             } else {
                 System.out.println("1. View Tours");
                 System.out.println("2. Book Tour");
-                System.out.println("3. Exit");
+                System.out.println("3. Search Tours");
+                System.out.println("4. View Tour Details");
+                System.out.println("5. Exit");
             }
 
             System.out.print("Enter your choice: ");
@@ -57,6 +66,42 @@ public class Main {
                         break;
 
                     case 4:
+                        // Cancel booking for Admin
+                        System.out.print("Enter tour ID to cancel booking: ");
+                        int cancelTourId = scanner.nextInt();
+                        system.cancelTourBooking(cancelTourId);
+                        break;
+
+                    case 5:
+                        // Search tours by name or location
+                        System.out.print("Enter search term (name or location): ");
+                        String searchTerm = scanner.nextLine();
+                        system.searchTours(searchTerm);
+                        break;
+
+                    case 6:
+                        // View tour details for Admin and User
+                        System.out.print("Enter tour ID to view details: ");
+                        int tourDetailId = scanner.nextInt();
+                        system.viewTourDetails(tourDetailId);
+                        break;
+
+                    case 7:
+                        // Sort tours by price
+                        system.sortToursByPrice();
+                        break;
+
+                    case 8:
+                        // Sort tours by available seats
+                        system.sortToursBySeats();
+                        break;
+
+                    case 9:
+                        // Export tours to CSV
+                        system.exportToursToCSV();
+                        break;
+
+                    case 10:
                         System.out.println("Exiting system...");
                         break;
 
@@ -73,11 +118,25 @@ public class Main {
                     case 2:
                         // Book tour option for User
                         System.out.print("Enter tour ID to book: ");
-                        int tourId = scanner.nextInt();
-                        system.bookTour(tourId);
+                        int userTourId = scanner.nextInt();
+                        system.bookTour(userTourId);
                         break;
 
                     case 3:
+                        // Search tours by name or location for User
+                        System.out.print("Enter search term (name or location): ");
+                        String userSearchTerm = scanner.nextLine();
+                        system.searchTours(userSearchTerm);
+                        break;
+
+                    case 4:
+                        // View tour details for User
+                        System.out.print("Enter tour ID to view details: ");
+                        int userTourDetailId = scanner.nextInt();
+                        system.viewTourDetails(userTourDetailId);
+                        break;
+
+                    case 5:
                         System.out.println("Exiting system...");
                         break;
 
@@ -85,7 +144,7 @@ public class Main {
                         System.out.println("Invalid choice. Please try again.");
                 }
             }
-        } while (choice != 4);
+        } while (choice != 10);
 
         scanner.close();
     }

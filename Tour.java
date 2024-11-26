@@ -5,6 +5,7 @@ public class Tour {
     private double price;
     private int seats;
 
+    // Constructor
     public Tour(int id, String name, String location, double price, int seats) {
         this.id = id;
         this.name = name;
@@ -13,6 +14,7 @@ public class Tour {
         this.seats = seats;
     }
 
+    // Getter and setter methods
     public int getId() {
         return id;
     }
