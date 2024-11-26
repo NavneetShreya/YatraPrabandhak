@@ -1,4 +1,4 @@
-// import TourismManagementSystem; // Remove this line if TourismManagementSystem is in the same package
+/ import TourismManagementSystem; // Remove this line if TourismManagementSystem is in the same package
 import java.util.Scanner; // Add this import statement
 
 public class Main {
